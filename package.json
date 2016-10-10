@@ -7,7 +7,7 @@
   ],
   "author": "Naftali Friedman <jnfsmile@gmail.com>",
   "scripts": {
-	"start": "node server/server.js"
+	"start": "node dist/server/server.js"
       },
   "dependencies": {
     "@ngrx/store": "1.5.0",
