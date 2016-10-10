@@ -1,13 +1,13 @@
 {
   "name": "Beshvili",
-  "version": "0.0.4",
-  "description": "wbesite for בשבילי אימון והדרכה",
+  "version": "0.0.16",
+  "description": "website for בשבילי אימון והדרכה",
   "keywords": [
     "בשבילי", "פוריות", "הריון", "אתגר"
   ],
   "author": "Naftali Friedman <jnfsmile@gmail.com>",
   "scripts": {
-	"start": "node dist/server/server.js"
+	"start": "node dist/server/server.bundle.js"
       },
   "dependencies": {
     "@ngrx/store": "1.5.0",
