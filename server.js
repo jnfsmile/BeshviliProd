@@ -9,6 +9,11 @@ var api = require('./routes/api');
 
 var app = express();
 
+require('dotenv').config();
+
+// Set the port for this app
+let port = process.env.PORT || 8080;
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'client'));
 //app.set('view engine', 'ejs');
@@ -36,7 +41,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-var server = app.listen(3000, function() {
+var server = app.listen(port, function() {
     var host = 'localhost';
     var port = server.address().port;
     console.log('App listening at http://%s:%s', host, port);
