@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app',
   template: `
   <header>
-   <nav class="navbar navbar-default" role="navigation">
+   <nav class="navbar navbar-default">
 
        <!-- navbar-header -->
        <div class="navbar-header">
@@ -15,22 +15,14 @@ import { Component } from '@angular/core';
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" routerLink="/home" title="בשבילי - אימון והדרכה">
+         <a class="hidden-xs hidden-sm navbar-brand" routerLink="/home" title="בשבילי - אימון והדרכה">
            <img [src]="siteLogo" alt="לוגו" />
-           {{name}}
-           <br/>
-           <span class="hidden-xs hidden-sm">הכוונה והדרכה מול אתגרי הפוריות</span>
+           <div id="site-name">
+             {{name}}
+             <br/>
+             <div>הכוונה והדרכה<br />מול אתגרי הפוריות</div>
+           </div>
          </a>
-
-         <!--span class="navbar-brand">
-           <a class="clearfix" routerLink="/home">
-             <img [src]="siteLogo" class="hidden-xs" />
-             <div>
-               <h1>בשבילי</h1>
-               <h2 class="hidden-xs hidden-sm">הכוונה והדרכה מול אתגרי הפוריות</h2>
-             </div>
-           </a>
-         </span!-->
 
        </div><!-- /navbar-header -->
 
@@ -42,6 +34,7 @@ import { Component } from '@angular/core';
            <li><a routerLink="/workshop" routerLinkActive="active">סדנאות</a></li>
            <li><a routerLink="/lecture" routerLinkActive="active">הרצאות</a></li>
            <li><a routerLink="/blog" routerLinkActive="active">בלוג</a></li>
+           <li><a routerLink="/book" routerLinkActive="active">ספר</a></li>
            <li><a routerLink="/about" routerLinkActive="active">אודות</a></li>
            <li><a routerLink="/contact" routerLinkActive="active">צרי קשר</a></li>
          </ul>
@@ -59,5 +52,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
  siteLogo = 'assets/images/site-logo.png';
  name = 'בשבילי';
- url = 'http://localhost:8080/';
+ url = '/';
 }
