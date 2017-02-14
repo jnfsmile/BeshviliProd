@@ -17,7 +17,7 @@ var HomeComponent = (function () {
             selector: 'home',
             providers: [],
             styles: [],
-            templateUrl: '/app/home/home.html'
+            template: "<div class=\"page\"></div>"
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);

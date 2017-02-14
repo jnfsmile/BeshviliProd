@@ -1,4 +1,8 @@
-require ('newrelic');
+require('dotenv').config();
+
+if (process.env.NODE_ENV === "production")
+  require ('newrelic');
+
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -10,7 +14,6 @@ var api = require('./routes/api');
 
 var app = express();
 
-require('dotenv').config();
 
 // Set the port for this app
 let port = process.env.PORT || 8080;
