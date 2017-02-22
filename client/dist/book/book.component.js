@@ -23,7 +23,7 @@ var BookComponent = (function () {
         core_1.Component({
             selector: 'book',
             providers: [index_1.Content],
-            template: "\n      <section class=\"page book\">\n        <h2>\u05D4\u05D7\u05D9\u05D9\u05DD \u05E9\u05D1\u05EA\u05D5\u05DB\u05DA</h2>\n        <p>\n          <thumbnail src=\"/assets/images/book-cover.jpg\" alt=\"\u05DB\u05E8\u05D9\u05DB\u05D4 \u05E9\u05DC \u05D4\u05E1\u05E4\u05E8 \u05D4\u05D7\u05D9\u05D9\u05DD \u05E9\u05D1\u05EA\u05D5\u05DB\u05DA\"></thumbnail>\n        </p>\n        <div [innerHTML]=\"bookContent\"></div>\n      </section>\n  ",
+            template: "\n      <section class=\"page book\">\n        <h3>\u05D4\u05D7\u05D9\u05D9\u05DD \u05E9\u05D1\u05EA\u05D5\u05DB\u05DA</h3>\n        <p>\n          <thumbnail src=\"/assets/images/book-cover.jpg\" alt=\"\u05DB\u05E8\u05D9\u05DB\u05D4 \u05E9\u05DC \u05D4\u05E1\u05E4\u05E8 \u05D4\u05D7\u05D9\u05D9\u05DD \u05E9\u05D1\u05EA\u05D5\u05DB\u05DA\"></thumbnail>\n        </p>\n        <div [innerHTML]=\"bookContent\"></div>\n      </section>\n  ",
         }), 
         __metadata('design:paramtypes', [index_1.Content])
     ], BookComponent);

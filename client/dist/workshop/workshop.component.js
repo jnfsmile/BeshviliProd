@@ -10,24 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var index_1 = require('./services/content/index');
-var AboutComponent = (function () {
-    function AboutComponent(content) {
+var WorkshopComponent = (function () {
+    function WorkshopComponent(content) {
         this.content = content;
-        this.aboutContent = "אודות";
+        this.workshopContent = "איך מתנהל תהליך אישי?";
     }
-    AboutComponent.prototype.ngOnInit = function () {
+    WorkshopComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.content.getData("about").subscribe(function (res) { return _this.aboutContent = res; });
+        this.content.getData("aboutWorkshop").subscribe(function (res) { return _this.workshopContent = res; });
     };
-    AboutComponent = __decorate([
+    WorkshopComponent = __decorate([
         core_1.Component({
-            selector: 'about',
+            selector: 'workshop',
             providers: [index_1.Content],
-            template: "\n      <section class=\"page about\">\n        <h3>\u05D4\u05E1\u05D9\u05E4\u05D5\u05E8 \u05E9\u05DC\u05D9</h3>\n        <div [innerHTML]=\"aboutContent\"></div>\n      </section>\n  ",
+            template: "\n      <section class=\"page workshop\">\n        <h3>\u05E1\u05D3\u05E0\u05D0 \u05D5\u05EA\u05D4\u05DC\u05D9\u05DA \u05D0\u05D9\u05E9\u05D9 \u05D1\u05D3\u05E8\u05DA \u05DC\u05D4\u05E8\u05D9\u05D5\u05DF - \u05D4\u05EA\u05DB\u05E0\u05D9\u05EA \u05D4\u05DE\u05DC\u05D0\u05D4</h3>\n        <div [innerHTML]=\"workshopContent\"></div>\n      </section>\n  ",
         }), 
         __metadata('design:paramtypes', [index_1.Content])
-    ], AboutComponent);
-    return AboutComponent;
+    ], WorkshopComponent);
+    return WorkshopComponent;
 }());
-exports.AboutComponent = AboutComponent;
-//# sourceMappingURL=about.component.js.map
+exports.WorkshopComponent = WorkshopComponent;
+//# sourceMappingURL=workshop.component.js.map

@@ -10,24 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var index_1 = require('./services/content/index');
-var AboutComponent = (function () {
-    function AboutComponent(content) {
+var PersonalComponent = (function () {
+    function PersonalComponent(content) {
         this.content = content;
-        this.aboutContent = "אודות";
+        this.personalContent = "איך מתנהל תהליך אישי?";
     }
-    AboutComponent.prototype.ngOnInit = function () {
+    PersonalComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.content.getData("about").subscribe(function (res) { return _this.aboutContent = res; });
+        this.content.getData("aboutPersonal").subscribe(function (res) { return _this.personalContent = res; });
     };
-    AboutComponent = __decorate([
+    PersonalComponent = __decorate([
         core_1.Component({
-            selector: 'about',
+            selector: 'personal',
             providers: [index_1.Content],
-            template: "\n      <section class=\"page about\">\n        <h3>\u05D4\u05E1\u05D9\u05E4\u05D5\u05E8 \u05E9\u05DC\u05D9</h3>\n        <div [innerHTML]=\"aboutContent\"></div>\n      </section>\n  ",
+            template: "\n      <section class=\"page personal\">\n        <h3>\u05EA\u05D4\u05DC\u05D9\u05DA \u05D0\u05D9\u05E9\u05D9 \u05D1\u05D3\u05E8\u05DA \u05DC\u05D4\u05E8\u05D9\u05D5\u05DF \u05EA\u05E7\u05D9\u05DF \u05D5\u05DC\u05D9\u05D3\u05D4</h3>\n        <div [innerHTML]=\"personalContent\"></div>\n      </section>\n  ",
         }), 
         __metadata('design:paramtypes', [index_1.Content])
-    ], AboutComponent);
-    return AboutComponent;
+    ], PersonalComponent);
+    return PersonalComponent;
 }());
-exports.AboutComponent = AboutComponent;
-//# sourceMappingURL=about.component.js.map
+exports.PersonalComponent = PersonalComponent;
+//# sourceMappingURL=personal.component.js.map
