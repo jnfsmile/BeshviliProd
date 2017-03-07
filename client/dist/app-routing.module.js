@@ -12,11 +12,13 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('./home/index');
 var index_2 = require('./about/index');
-var index_3 = require('./book/index');
-var index_4 = require('./personal/index');
-var index_5 = require('./workshop/index');
-var index_6 = require('./contact/index');
-var index_7 = require('./notYet/index');
+var index_3 = require('./media/index');
+var index_4 = require('./book/index');
+var index_5 = require('./personal/index');
+var index_6 = require('./workshop/index');
+var index_7 = require('./creative/index');
+var index_8 = require('./contact/index');
+var index_9 = require('./notYet/index');
 var routes = [
     {
         path: '',
@@ -29,35 +31,39 @@ var routes = [
     },
     {
         path: 'personal',
-        component: index_4.PersonalComponent
+        component: index_5.PersonalComponent
     },
     {
         path: 'book',
-        component: index_3.BookComponent
+        component: index_4.BookComponent
     },
     {
         path: 'creative',
-        component: index_7.NotYetComponent
+        component: index_7.CreativeComponent
     },
     {
         path: 'workshop',
-        component: index_5.WorkshopComponent
+        component: index_6.WorkshopComponent
     },
     {
         path: 'lecture',
-        component: index_7.NotYetComponent
+        component: index_9.NotYetComponent
     },
     {
         path: 'blog',
-        component: index_7.NotYetComponent
+        component: index_9.NotYetComponent
     },
     {
         path: 'about',
         component: index_2.AboutComponent
     },
     {
+        path: 'media',
+        component: index_3.MediaComponent
+    },
+    {
         path: 'contact',
-        component: index_6.ContactComponent
+        component: index_8.ContactComponent
     }
 ];
 var AppRoutingModule = (function () {
