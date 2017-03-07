@@ -19,7 +19,6 @@ var CreativeComponent = (function () {
     }
     CreativeComponent.prototype.onSelect = function (item, center) {
         this.selectedContent = item;
-        this.selectedContent.center = center;
     };
     CreativeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -30,7 +29,7 @@ var CreativeComponent = (function () {
         core_1.Component({
             selector: 'creative',
             providers: [index_1.Content],
-            template: "\n  <section class=\"page creative\">\n    <aside>\n      <div>\u05E9\u05D9\u05E8\u05D9\u05DD</div>\n      <ul class=\"content-list\">\n        <li *ngFor=\"let song of songs\" (click)=\"onSelect(song, true)\" [class.selected]=\"song.id===selectedContent.id\">\n          <a>{{song.name}}</a>\n        </li>\n      </ul>\n      <div>\u05E1\u05D9\u05E4\u05D5\u05E8\u05D9\u05DD</div>\n      <ul class=\"content-list\">\n        <li *ngFor=\"let story of stories\" (click)=\"onSelect(story)\" [class.selected]=\"story.id===selectedContent.id\">\n          <a>{{story.name}}</a>\n        </li>\n      </ul>\n    </aside>\n    <div *ngIf='selectedContent.id!==\"\"'>\n      <div class=\"song-intro\">{{selectedContent.intro}}</div>\n      <div class=\"song-title\" [class.center]=\"selectedContent.center\">{{selectedContent.name}}</div>\n      <div class=\"song-words\" [class.center]=\"selectedContent.center\" [innerHTML]=\"selectedContent.words\"></div>\n      <br />\n      <div class=\"content-end\">*************************</div>\n    </div>\n  </section>\n  ",
+            template: "\n  <section class=\"page creative\">\n    <aside>\n      <div>\u05E9\u05D9\u05E8\u05D9\u05DD</div>\n      <ul class=\"content-list\">\n        <li *ngFor=\"let song of songs\" (click)=\"onSelect(song)\" [class.selected]=\"song.id===selectedContent.id\">\n          <a>{{song.name}}</a>\n        </li>\n      </ul>\n      <div>\u05E1\u05D9\u05E4\u05D5\u05E8\u05D9\u05DD</div>\n      <ul class=\"content-list\">\n        <li *ngFor=\"let story of stories\" (click)=\"onSelect(story)\" [class.selected]=\"story.id===selectedContent.id\">\n          <a>{{story.name}}</a>\n        </li>\n      </ul>\n    </aside>\n    <div *ngIf='selectedContent.id!==\"\"'>\n      <div class=\"song-intro\">{{selectedContent.intro}}</div>\n      <div class=\"song-title\" [class.center]=\"selectedContent.type==='song'\">{{selectedContent.name}}</div>\n      <div class=\"song-words\" [class.center]=\"selectedContent.type==='song'\" [innerHTML]=\"selectedContent.words\"></div>\n      <br />\n      <div class=\"content-end\">*************************</div>\n    </div>\n  </section>\n  ",
         }), 
         __metadata('design:paramtypes', [index_1.Content])
     ], CreativeComponent);
