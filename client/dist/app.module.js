@@ -23,6 +23,7 @@ var index_7 = require('./personal/index');
 var index_8 = require('./creative/index');
 var index_9 = require('./notYet/index');
 var index_10 = require('./thumbnail/index');
+var index_11 = require('./youtube/index');
 var app_routing_module_1 = require('./app-routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -36,7 +37,7 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [app_component_1.AppComponent, index_1.HomeComponent, index_2.ContactComponent, index_3.AboutComponent, index_5.BookComponent, index_4.MediaComponent,
-                index_7.PersonalComponent, index_6.WorkshopComponent, index_8.CreativeComponent, index_9.NotYetComponent, index_10.ThumbnailComponent],
+                index_7.PersonalComponent, index_6.WorkshopComponent, index_8.CreativeComponent, index_9.NotYetComponent, index_10.ThumbnailComponent, index_11.YoutubeComponent],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
         }), 
