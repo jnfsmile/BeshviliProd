@@ -309,8 +309,8 @@ var BlogComponent = (function () {
     BlogComponent = __decorate([
         core_1.Component({
             selector: 'blog',
-            providers: [index_1.Content],
-            template: "\n      <section class=\"page blog\">\n        <article>\n          <header>\n            <h3>\u05D1\u05E9\u05D1\u05D9\u05DC\u05D9 - \u05D4\u05D1\u05DC\u05D5\u05D2</h3>\n            <h4>{{title}}</h4>\n            <div></div>\n            <time pubdate [attr.datetime]=\"lastChange\"></time>\n          </header>\n          <div [innerHTML]=\"body\"></div>\n        </article>\n      </section>\n  ",
+            providers: [index_1.Content, index_2.TagService],
+            template: "\n      <section class=\"page blog\">\n        <article>\n          <header>\n            <h3>\u05D1\u05E9\u05D1\u05D9\u05DC\u05D9 - \u05D4\u05D1\u05DC\u05D5\u05D2</h3>\n            <h4>{{title}}</h4>\n            <div></div>\n            <time pubdate [attr.datetime]=\"lastChange\"></time>\n          </header>\n          <div [innerHTML]=\"body\"></div>\n        </article>\n      </section>\n  "
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, index_1.Content, index_2.TagService])
     ], BlogComponent);
@@ -652,10 +652,12 @@ __export(require('./home.component'));
 "use strict";
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
 var app_module_1 = require('./app.module');
+var core_1 = require('@angular/core');
+core_1.enableProdMode();
 var platform = platform_browser_dynamic_1.platformBrowserDynamic();
 platform.bootstrapModule(app_module_1.AppModule);
 
-},{"./app.module":7,"@angular/platform-browser-dynamic":52}],26:[function(require,module,exports){
+},{"./app.module":7,"@angular/core":49,"@angular/platform-browser-dynamic":52}],26:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
