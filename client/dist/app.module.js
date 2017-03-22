@@ -18,12 +18,13 @@ var index_2 = require('./contact/index');
 var index_3 = require('./about/index');
 var index_4 = require('./media/index');
 var index_5 = require('./book/index');
-var index_6 = require('./workshop/index');
-var index_7 = require('./personal/index');
-var index_8 = require('./creative/index');
-var index_9 = require('./notYet/index');
-var index_10 = require('./thumbnail/index');
-var index_11 = require('./youtube/index');
+var index_6 = require('./blog/index');
+var index_7 = require('./workshop/index');
+var index_8 = require('./personal/index');
+var index_9 = require('./creative/index');
+var index_10 = require('./notYet/index');
+var index_11 = require('./thumbnail/index');
+var index_12 = require('./youtube/index');
 var app_routing_module_1 = require('./app-routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -36,8 +37,8 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 app_routing_module_1.AppRoutingModule
             ],
-            declarations: [app_component_1.AppComponent, index_1.HomeComponent, index_2.ContactComponent, index_3.AboutComponent, index_5.BookComponent, index_4.MediaComponent,
-                index_7.PersonalComponent, index_6.WorkshopComponent, index_8.CreativeComponent, index_9.NotYetComponent, index_10.ThumbnailComponent, index_11.YoutubeComponent],
+            declarations: [app_component_1.AppComponent, index_1.HomeComponent, index_2.ContactComponent, index_3.AboutComponent, index_5.BookComponent, index_6.BlogComponent, index_4.MediaComponent,
+                index_8.PersonalComponent, index_7.WorkshopComponent, index_9.CreativeComponent, index_10.NotYetComponent, index_11.ThumbnailComponent, index_12.YoutubeComponent],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -14,11 +14,12 @@ var index_1 = require('./home/index');
 var index_2 = require('./about/index');
 var index_3 = require('./media/index');
 var index_4 = require('./book/index');
-var index_5 = require('./personal/index');
-var index_6 = require('./workshop/index');
-var index_7 = require('./creative/index');
-var index_8 = require('./contact/index');
-var index_9 = require('./notYet/index');
+var index_5 = require('./blog/index');
+var index_6 = require('./personal/index');
+var index_7 = require('./workshop/index');
+var index_8 = require('./creative/index');
+var index_9 = require('./contact/index');
+var index_10 = require('./notYet/index');
 var routes = [
     {
         path: '',
@@ -31,7 +32,7 @@ var routes = [
     },
     {
         path: 'personal',
-        component: index_5.PersonalComponent
+        component: index_6.PersonalComponent
     },
     {
         path: 'book',
@@ -39,19 +40,19 @@ var routes = [
     },
     {
         path: 'creative',
-        component: index_7.CreativeComponent
+        component: index_8.CreativeComponent
     },
     {
         path: 'workshop',
-        component: index_6.WorkshopComponent
+        component: index_7.WorkshopComponent
     },
     {
         path: 'lecture',
-        component: index_9.NotYetComponent
+        component: index_10.NotYetComponent
     },
     {
-        path: 'blog',
-        component: index_9.NotYetComponent
+        path: 'blog/:id',
+        component: index_5.BlogComponent
     },
     {
         path: 'about',
@@ -63,7 +64,7 @@ var routes = [
     },
     {
         path: 'contact',
-        component: index_8.ContactComponent
+        component: index_9.ContactComponent
     }
 ];
 var AppRoutingModule = (function () {
