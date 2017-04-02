@@ -43,7 +43,7 @@ router.get('/post-login', function (req, res, next) {
         return console.log('An error occured', err);
       }
       res.send(profile.displayName, ':', profile.tagline);
-      console.log(profile.displayName, ':', profile.tagline);
+      console.log(profile);
     });
   });
 });
