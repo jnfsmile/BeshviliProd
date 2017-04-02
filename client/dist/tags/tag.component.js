@@ -44,7 +44,7 @@ var TagComponent = (function () {
         core_1.Component({
             selector: 'tag',
             providers: [index_1.Content, tag_service_1.TagService],
-            template: "\n      <section class=\"page tag postbatch\">\n        <h3>{{title}}</h3>\n        <article *ngFor=\"let post of posts\">\n          <div (click)=\"navigate(post.id)\">{{post.title}}</div>\n          <div>{{post.author}}</div>\n        </article>\n      </section>\n  "
+            template: "\n      <section class=\"page tag postbatch\">\n        <h3>{{title}}</h3>\n        <article *ngFor=\"let post of posts\">\n          <div (click)=\"navigate(post.id)\"><a>{{post.title}}</a></div>\n          <div>{{post.author}}</div>\n        </article>\n      </section>\n  "
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, index_1.Content, tag_service_1.TagService])
     ], TagComponent);

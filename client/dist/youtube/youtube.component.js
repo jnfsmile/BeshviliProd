@@ -26,7 +26,7 @@ var YoutubeComponent = (function () {
     YoutubeComponent = __decorate([
         core_1.Component({
             selector: 'youtube',
-            styles: ["\n    .youtube-wrapper {\n      margin: 0;\n      position: relative;\n      padding-bottom: 56.25%; /* 16:9 */\n      padding-top: 25px;\n      height: 0;\n      width: 100%;\n      max-width: 560px;\n    }\n    .youtube-wrapper iframe {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \twidth: 100%;\n    \theight: 100%;\n    }\n  "],
+            styles: ["\n    .youtube-wrapper {\n      margin: 0;\n      position: relative;\n      padding-bottom: 56.25%; /* 16:9 */\n      padding-top: 25px;\n      height: 0;\n      width: 100%;\n    }\n    .youtube-wrapper iframe {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \twidth: 100%;\n    \theight: 100%;\n    }\n  "],
             template: "\n  <div class=\"youtube-wrapper\">\n    <iframe width=\"560\" height=\"315\" [src]=\"url\" frameborder=\"0\" allowfullscreen></iframe>\n  </div>"
         }), 
         __metadata('design:paramtypes', [platform_browser_1.DomSanitizer])

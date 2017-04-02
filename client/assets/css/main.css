@@ -752,6 +752,11 @@ button.active {
 button.active:hover {
   color: #fff; }
 
+.postbatch article {
+  border-bottom: 1px solid #74132A; }
+  .postbatch article:last-of-type {
+    border-bottom: 0; }
+
 home figure {
   display: block;
   text-align: center; }
