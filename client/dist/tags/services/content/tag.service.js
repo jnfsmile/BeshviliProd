@@ -15,9 +15,14 @@ require('rxjs/Rx');
 var TagService = (function () {
     function TagService(http) {
         this.http = http;
+        this.data = [];
     }
-    TagService.prototype.getData = function () {
-        var data = [
+    TagService.prototype.loadData = function (force) {
+        if (force === void 0) { force = false; }
+        if (!force && this.data.length > 0) {
+            return;
+        }
+        this.data = [
             { id: 0, name: "פוריות" },
             { id: 1, name: "זוגיות" },
             { id: 2, name: "בטחון עצמי" },
@@ -32,7 +37,13 @@ var TagService = (function () {
             { id: 11, name: "עשייה פורייה" },
             { id: 12, name: "שמחה והודיה" }
         ];
-        return Observable_1.Observable.of(data);
+    };
+    TagService.prototype.getData = function (list) {
+        this.loadData();
+        console.log(list);
+        if (list && list.length === 0)
+            return Observable_1.Observable.of(this.data);
+        return Observable_1.Observable.of(this.data.filter(function (item) { return list.indexOf(item.id) >= 0; }));
     };
     TagService = __decorate([
         core_1.Injectable(), 
