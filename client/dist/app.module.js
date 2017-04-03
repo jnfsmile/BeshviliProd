@@ -25,7 +25,9 @@ var index_9 = require('./personal/index');
 var index_10 = require('./creative/index');
 var index_11 = require('./notYet/index');
 var index_12 = require('./thumbnail/index');
-var index_13 = require('./youtube/index');
+var index_13 = require('./gallery/index');
+var index_14 = require('./gallery/index');
+var index_15 = require('./youtube/index');
 var app_routing_module_1 = require('./app-routing.module');
 var AppModule = (function () {
     function AppModule() {
@@ -39,7 +41,7 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [app_component_1.AppComponent, index_1.HomeComponent, index_2.ContactComponent, index_3.AboutComponent, index_5.BookComponent, index_6.BlogComponent, index_7.TagComponent, index_4.MediaComponent,
-                index_9.PersonalComponent, index_8.WorkshopComponent, index_10.CreativeComponent, index_11.NotYetComponent, index_12.ThumbnailComponent, index_13.YoutubeComponent],
+                index_9.PersonalComponent, index_8.WorkshopComponent, index_10.CreativeComponent, index_11.NotYetComponent, index_12.ThumbnailComponent, index_13.GalleryComponent, index_14.GalleryImageComponent, index_15.YoutubeComponent],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
         }), 

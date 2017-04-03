@@ -38,12 +38,15 @@ router.get('/post-login', function (req, res, next) {
     var plus = google.plus("v1");
     // retrieve user profile
     plus.people.get({ userId: 'me', auth: oauth2Client }, function (err, profile) {
+      var authorized = JSON.parse(process.env.AUTHORIZED);
       if (err) {
         res.send(err);
         return console.log('An error occured', err);
       }
-      res.send(profile.displayName, ':', profile.tagline);
-      console.log(profile);
+      if (authorized.indexOf(profile.id) >= 0) res.send(profile.displayName, ':', profile.tagline);else {
+        res.send('Sorry, ' + profile.displayName + ', you are unauthorized for this page<br /><a href="/">homepage</a>');
+      }
+      console.log(profile + ' accessed admin');
     });
   });
 });
