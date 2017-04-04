@@ -39,6 +39,7 @@ router.get('/post-login', function (req, res, next) {
     // retrieve user profile
     plus.people.get({ userId: 'me', auth: oauth2Client }, function (err, profile) {
       var authorized = JSON.parse(process.env.AUTHORIZED);
+      console.log(authorized);
       if (err) {
         res.send(err);
         return console.log('An error occured', err);
