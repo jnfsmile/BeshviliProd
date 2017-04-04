@@ -47,7 +47,7 @@ router.get('/post-login', function (req, res, next) {
       if (authorized.indexOf(profile.id) >= 0) res.send(profile.displayName, ':', profile.tagline);else {
         res.send('Sorry, ' + profile.displayName + ', you are unauthorized for this page<br /><a href="/">homepage</a>');
       }
-      console.log(profile + ' accessed admin');
+      console.log('admin accessed by', profile);
     });
   });
 });
