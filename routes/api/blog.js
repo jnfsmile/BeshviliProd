@@ -22,18 +22,16 @@ router.get('/blog/:id', function (req, res, next) {
   if (validId) {
     db.blogs.findOne({
       _id: mongojs.ObjectId(req.params.id)
-    }, function (err, blogs) {
+    }, function (err, blog) {
       if (err) {
-        console.log('\n\n          ----------------------\n          ' + err + '\n          ----------------------\n\n          ');
         res.send(err);
       } else {
-        res.json(blogs);
+        res.json(blog);
       }
     });
   } else {
     db.blogs.find().limit(1).sort({ $natural: -1 }, function (err, blogs) {
       if (err) {
-        console.log('\n\n          ----------------------\n          ' + err + '\n          ----------------------\n\n          ');
         res.send(err);
       } else if (blogs.length == 0) {
         res.send("no entry found");
