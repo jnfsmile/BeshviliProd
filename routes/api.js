@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://localhost:27017/', ['beshvili']);
+var db = mongojs(process.env.MONGODB_URI, ['beshvili']);
 
 /* GET All Todos */
 router.get('/todos', function (req, res, next) {
@@ -86,5 +86,6 @@ router.delete('/todo/:id', function (req, res) {
 });
 
 router.use('/', require('./api/blog'));
+router.use('/', require('./api/author'));
 
 module.exports = router;

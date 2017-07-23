@@ -752,6 +752,12 @@ button.active {
 button.active:hover {
   color: #fff; }
 
+[contenteditable] {
+  min-width: 150px;
+  white-space: pre-wrap; }
+  [contenteditable].empty {
+    border: #DD2222 3px solid; }
+
 .postbatch article {
   border-bottom: 1px solid #74132A; }
   .postbatch article:last-of-type {
