@@ -20,6 +20,7 @@ var verify = function verify(req, res, next) {
 router.use('/', verify);
 
 router.use('/', require('./sapi/blog'));
+router.use('/', require('./sapi/tag'));
 router.use('/', require('./sapi/author'));
 
 module.exports = router;
