@@ -52,7 +52,7 @@ router.get('/post-login', function (req, res, next) {
           res.cookie("admin", profile.id, { secure: true, httpOnly: true });
         }
         console.log(res.cookie);
-        res.redirect('/BlogEdit');
+        res.redirect('/blog/edit');
         //res.send(`${profile.displayName}:${profile.tagline}`);
       } else {
         if (process.env.ENV == "dev") {

@@ -82,6 +82,7 @@ router.get('/config/:item', function (req, res, next) {
 //   });
 // });
 
+router.use('/', require('./api/static'));
 router.use('/', require('./api/blog'));
 router.use('/', require('./api/tag'));
 router.use('/', require('./api/author'));
