@@ -27,9 +27,9 @@ app.use(logger('dev'));
 app.use(function (req, res, next) {
   console.log(req);
   console.log(process.env);
-  if (process.env.ENV !== "dev" && !req.secure) {
+  /*if(process.env.ENV !== "dev" && !req.secure) {
     return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }
+  }*/
   next();
 });
 app.use(bodyParser.json());
