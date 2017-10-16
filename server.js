@@ -11,6 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var admin = require('./routes/admin');
 var api = require('./routes/api');
 var sapi = require('./routes/sapi');
 
@@ -28,9 +29,12 @@ app.use(function (req, res, next) {
   console.log(req.secure);
   console.log(req.protocol);
   console.log(process.env.ENV);
-  /*if(process.env.ENV !== "dev" && !req.secure) {
-    return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  }*/
+  console.log(req.header('x-forwarded-proto'));
+  if (process.env.ENV !== "dev" && !req.secure) {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      //return res.redirect(`https://${req.header('host')}${req.url}`);
+    }
+  }
   next();
 });
 app.use(bodyParser.json());
@@ -55,6 +59,7 @@ if (process.env.ENV === "dev") {
 }
 
 app.use('/', index);
+app.use('/admin', admin);
 app.use('/api/v1/', api);
 app.use('/sapi/v1/', sapi);
 
@@ -78,7 +83,7 @@ app.use(function (req, res, next) {
 var server = app.listen(port, function () {
   var host = 'localhost';
   var port = server.address().port;
-  console.log('App listening at http://%s:%s', host, port);
+  console.log('App listening at //%s:%s', host, port);
 });
 
 module.exports = app;
