@@ -26,6 +26,7 @@ var port = process.env.PORT || 8080;
 app.use(logger('dev'));
 app.use(function (req, res, next) {
   console.log(req.secure);
+  console.log(req.protocol);
   console.log(process.env.ENV);
   /*if(process.env.ENV !== "dev" && !req.secure) {
     return res.redirect(['https://', req.get('Host'), req.url].join(''));
