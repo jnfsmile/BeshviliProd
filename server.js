@@ -26,13 +26,9 @@ var port = process.env.PORT || 8080;
 //app.engine('html', require('ejs').renderFile);
 app.use(logger('dev'));
 app.use(function (req, res, next) {
-  console.log(req.secure);
-  console.log(req.protocol);
-  console.log(process.env.ENV);
-  console.log(req.header('x-forwarded-proto'));
-  if (process.env.ENV !== "dev" && !req.secure) {
+  if (process.env.ENV !== "dev") {
     if (req.header('x-forwarded-proto') !== 'https') {
-      //return res.redirect(`https://${req.header('host')}${req.url}`);
+      return res.redirect('https://' + req.header('host') + req.url);
     }
   }
   next();
@@ -59,7 +55,7 @@ if (process.env.ENV === "dev") {
 }
 
 app.use('/', index);
-app.use('/admin', admin);
+app.use('/admin/', admin);
 app.use('/api/v1/', api);
 app.use('/sapi/v1/', sapi);
 
