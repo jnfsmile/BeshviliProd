@@ -8,7 +8,7 @@ var mongojs = require('mongojs');
 var db = mongojs(process.env.MONGODB_URI, ['beshvili']);
 
 router.get('/blogs', function (req, res, next) {
-  db.blogs.find(function (err, blogs) {
+  db.blogs.find({ visible: true }, function (err, blogs) {
     if (err) {
       res.send(err);
     } else {
@@ -16,13 +16,16 @@ router.get('/blogs', function (req, res, next) {
     }
   });
 });
-/* GET One blog with the provided ID */
+/* GET One visible blog with the provided ID */
 router.get('/blog/:id', function (req, res, next) {
   var id = req.params["id"];
+  console.log(id);
   var validId = typeof id !== "undefined" && (id.length == 12 || id.length == 24) && /^[0-9a-fA-F]+$/.test(id);
+  console.log(validId);
   if (validId) {
     db.blogs.findOne({
-      _id: mongojs.ObjectId(req.params.id)
+      _id: mongojs.ObjectId(req.params.id),
+      visible: true
     }, function (err, blog) {
       if (err) {
         res.send(err);
@@ -31,7 +34,7 @@ router.get('/blog/:id', function (req, res, next) {
       }
     });
   } else {
-    db.blogs.find().limit(1).sort({ $natural: -1 }, function (err, blogs) {
+    db.blogs.find({ visible: true }).limit(1).sort({ $natural: -1 }, function (err, blogs) {
       if (err) {
         res.send(err);
       } else if (blogs.length == 0) {

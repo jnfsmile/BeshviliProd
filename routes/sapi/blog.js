@@ -7,6 +7,34 @@ var router = express.Router();
 var mongojs = require('mongojs');
 var db = mongojs(process.env.MONGODB_URI, ['beshvili']);
 
+/* GET a blog post by Id, be it visible or not */
+router.get('/blog/:id', function (req, res, next) {
+  var id = req.params["id"];
+  console.log(id);
+  var validId = typeof id !== "undefined" && (id.length == 12 || id.length == 24) && /^[0-9a-fA-F]+$/.test(id);
+  console.log(validId);
+  if (validId) {
+    db.blogs.findOne({
+      _id: mongojs.ObjectId(req.params.id)
+    }, function (err, blog) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json(blog);
+      }
+    });
+  } else {
+    db.blogs.find({ visible: true }).limit(1).sort({ $natural: -1 }, function (err, blogs) {
+      if (err) {
+        res.send(err);
+      } else if (blogs.length == 0) {
+        res.send("no entry found");
+      } else {
+        res.json(blogs[0]);
+      }
+    });
+  }
+});
 /* POST/SAVE a blog */
 router.post('/blog', function (req, res, next) {
   var blog = req.body;
@@ -47,6 +75,7 @@ router.put('/blog/:id', function (req, res, next) {
   if (blog.tags) {
     updObj.tags = blog.tags;
   }
+  updObj.visible = blog.visible;
   updObj.lastChange = new Date();
 
   if (!updObj) {
@@ -61,7 +90,7 @@ router.put('/blog/:id', function (req, res, next) {
     }, updObj, {}, function (err, result) {
       if (err) {
         console.log(err);
-        res.send("update failed          v  v2v2                                 z b bv");
+        res.send("update failed");
       } else {
         res.json(result);
       }

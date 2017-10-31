@@ -9,7 +9,7 @@ var verify = function verify(req, res, next) {
   console.log(req.signedCookies);
   var authorized = JSON.parse(process.env.AUTHORIZED);
   var authenticated = authorized.indexOf(req.signedCookies.admin) >= 0;
-  if (authenticated) {
+  if (authenticated || process.env.ENV === "dev") {
     console.log("Authenticated request");
     next();
   } else {
