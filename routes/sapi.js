@@ -14,7 +14,7 @@ var verify = function verify(req, res, next) {
     next();
   } else {
     console.log("Unauthenticated access");
-    res.redirect('/');
+    res.status(401).text("Unauthenticated");
   }
 };
 router.use('/', verify);

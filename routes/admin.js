@@ -45,6 +45,7 @@ router.get('/post-login', function (req, res, next) {
         res.send(err);
         return console.log('An error occured', err);
       }
+      console.log(authorized, profile.id);
       if (authorized.indexOf(profile.id) >= 0) {
         if (process.env.ENV === "dev") {
           res.cookie("admin", profile.id, { httpOnly: true });
