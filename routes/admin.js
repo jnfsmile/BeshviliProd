@@ -19,7 +19,7 @@ google.options({
   auth: oauth2Client
 });
 
-router.use(cookieParser(process.env.COOKIE_SECRET));
+router.use(express.cookieParser(process.env.COOKIE_SECRET));
 
 router.get('/login', function (req, res, next) {
 
