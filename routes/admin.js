@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var cookieParser = require('cookie-parser');
 
 var google = require('googleapis');
 var OAuth2Client = google.auth.OAuth2;
@@ -17,6 +18,8 @@ var oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 google.options({
   auth: oauth2Client
 });
+
+router.use(cookieParser(process.env.COOKIE_SECRET));
 
 router.get('/login', function (req, res, next) {
 
