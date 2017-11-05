@@ -45,16 +45,13 @@ router.get('/post-login', function (req, res, next) {
         res.send(err);
         return console.log('An error occured', err);
       }
-      console.log(authorized, profile.id);
       if (authorized.indexOf(profile.id) >= 0) {
         if (process.env.ENV === "dev") {
           res.cookie("admin", profile.id, { httpOnly: true });
         } else {
-          res.cookie("admin", profile.id, { secure: true, httpOnly: true });
+          res.cookie("admin", profile.id, { signed: true, secure: true, httpOnly: true });
         }
-        console.log(res.cookie);
         res.redirect('/blog/edit');
-        //res.send(`${profile.displayName}:${profile.tagline}`);
       } else {
         if (process.env.ENV == "dev") {
           res.clearCookie("admin", { path: "/admin", httpOnly: true });
@@ -63,14 +60,13 @@ router.get('/post-login', function (req, res, next) {
         }
         res.send('Sorry, ' + profile.displayName + ', you are unauthorized for this page<br /><a href="/">homepage</a>');
       }
-      console.log('admin accessed by', profile);
     });
   });
 });
 
 var verify = function verify(req, res, next) {
   var authorized = JSON.parse(process.env.AUTHORIZED);
-  var authenticated = authorized.indexOf(req.cookies.admin) >= 0;
+  var authenticated = authorized.indexOf(req.signedCookies.admin) >= 0;
   if (authenticated) {
     console.log("Authenticated request");
     next();
