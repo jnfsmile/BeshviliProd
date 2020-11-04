@@ -5,7 +5,7 @@ require("dotenv").config();
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs(process.env.MONGODB_URI, ['beshvili']);
+var db = mongojs(process.env.DB_URI, ['beshvili']);
 
 router.get('/authors', function (req, res, next) {
   db.authors.find(function (err, authors) {

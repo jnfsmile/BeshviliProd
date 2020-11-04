@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var cookieParser = require('cookie-parser');
 
 var google = require('googleapis');
 var OAuth2Client = google.auth.OAuth2;
@@ -20,7 +19,6 @@ google.options({
 });
 
 router.get('/login', function (req, res, next) {
-
   // generate consent page url
   var url = oauth2Client.generateAuthUrl({
     access_type: 'offline',
@@ -41,6 +39,12 @@ router.get('/post-login', function (req, res, next) {
     var plus = google.plus("v1");
     // retrieve user profile
     plus.people.get({ userId: 'me' }, function (err, profile) {
+      if (process.env.ENV == "dev") {
+        res.cookie("loggedUser", profile.displayName, { httpOnly: true });
+      } else {
+        res.cookie("loggedUser", profile.displayName, { secure: true, httpOnly: true });
+      }
+
       var authorized = JSON.parse(process.env.AUTHORIZED);
       if (err) {
         res.send(err);
@@ -73,7 +77,7 @@ var verify = function verify(req, res, next) {
     next();
   } else {
     console.log("Unauthenticated access");
-    res.status(401).text("Unauthenticated");
+    res.send('Sorry, you are unauthorized for this page<br /><a href="/">homepage</a>');
   }
 };
 
@@ -90,3 +94,7 @@ router.all('*', verify, function (req, res) {
 });
 
 module.exports = router;
+
+/*
+https://developers.google.com/people/api/rest/v1/people#Person
+*/

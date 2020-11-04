@@ -1,18 +1,26 @@
-'use strict';
+"use strict";
 
 require("dotenv").config();
 
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var mongojs = require('mongojs');
-var db = mongojs(process.env.MONGODB_URI, ['beshvili']);
+var mongojs = require("mongojs");
+var db = mongojs(process.env.DB_URI, ["beshvili"]);
 
+/* GET list of all blogs */
+router.get("/blogs", function (req, res, next) {
+  db.blogs.find(function (err, blogs) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(blogs);
+    }
+  });
+});
 /* GET a blog post by Id, be it visible or not */
-router.get('/blog/:id', function (req, res, next) {
+router.get("/blog/:id", function (req, res, next) {
   var id = req.params["id"];
-  console.log(id);
   var validId = typeof id !== "undefined" && (id.length == 12 || id.length == 24) && /^[0-9a-fA-F]+$/.test(id);
-  console.log(validId);
   if (validId) {
     db.blogs.findOne({
       _id: mongojs.ObjectId(req.params.id)
@@ -36,7 +44,7 @@ router.get('/blog/:id', function (req, res, next) {
   }
 });
 /* POST/SAVE a blog */
-router.post('/blog', function (req, res, next) {
+router.post("/blog", function (req, res, next) {
   var blog = req.body;
   if (!blog.author) blog.author = "גלית פרידמן";
   if (!blog.title || !blog.body) {
@@ -56,9 +64,8 @@ router.post('/blog', function (req, res, next) {
   }
 });
 /* PUT/UPDATE a blog */
-router.put('/blog/:id', function (req, res, next) {
+router.put("/blog/:id", function (req, res, next) {
   var blog = req.body;
-  console.log(req.body);
   var updObj = {};
   if (blog.title) {
     updObj.title = blog.title;
@@ -84,7 +91,6 @@ router.put('/blog/:id', function (req, res, next) {
       "error": "Invalid Data"
     });
   } else {
-    console.log(req.params.id);
     db.blogs.update({
       _id: mongojs.ObjectId(req.params.id)
     }, updObj, {}, function (err, result) {
@@ -98,10 +104,10 @@ router.put('/blog/:id', function (req, res, next) {
   }
 });
 /* DELETE a blog */
-router.delete('/blog/:id', function (req, res) {
+router.delete("/blog/:id", function (req, res) {
   db.blogs.remove({
     _id: mongojs.ObjectId(req.params.id)
-  }, '', function (err, result) {
+  }, "", function (err, result) {
     if (err) {
       res.send(err);
     } else {
